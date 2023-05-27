@@ -1,0 +1,328 @@
+@font-face {
+    font-family: "Tusker Grotesk";
+    src: url("TuskerGrotesk-5700Bold.otf") format("openType");
+}
+
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 200vh;
+}
+
+button{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    z-index: 1000;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+button img{
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+}
+
+button :hover{
+    opacity: 1;
+}
+
+.gauche{
+    left:20px;
+    top: 50%;
+    transform: translateY(-50%);
+    filter: invert();
+}
+
+.droite{
+    right:20px;
+    top: 50%;
+    transform: translateY(-50%);
+    filter: invert();
+}
+
+.top{
+    width: 11em;
+    height: 11em;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+    top: 100%;
+    filter: invert();
+}
+
+
+.premier{
+    margin-top: -40px;
+    animation: chevrons_bas 2s infinite;
+}
+
+.second{
+    margin-top: -95px ;
+    animation: chevrons_bas 2s infinite 0.2s;
+}
+.troisieme{
+    margin-top: -95px ;
+    animation: chevrons_bas 2s infinite 0.4s;
+}
+
+
+.bottom{
+    width: 11em;
+    height: 11em;
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    bottom: 0;
+    filter: invert(1);
+    background-color: transparent;
+}
+
+.container{
+    width: 100vw;
+    height: 200vh;
+    display: none;
+}
+
+.bas{
+    background-color: rgb(255, 255, 255);
+    display: block;
+    width: 100%;
+    height: 50%;
+}
+
+.info_gauche{
+    position: absolute;
+    left: 0;
+    width: 50%;
+}
+
+
+H1{
+    margin: 10px;
+    font-family: "Tusker Grotesk";
+    font-size: 5EM;
+}
+
+p{
+    font-family: "Bahnschrift Condensed"; 
+    font-weight: 600;
+    margin: 50px;
+}
+
+.info_droite{
+    text-align: end;
+    position: absolute;
+    right: 0;
+    width: 50%;
+}
+
+
+
+
+div img#haut{
+    width: 100%;
+    height: 50%;
+    object-fit: contain;
+}
+
+button.top img , button.bottom img{
+    position: relative;
+    width: 50%;
+    height: 90%;
+    object-fit: contain;
+
+}
+button.top img{
+    transform: rotate(92deg) ;
+}
+
+button.bottom img{
+    transform: rotate(-88deg);
+    animation: chevrons_haut 2s infinite;
+}
+
+.active{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.active_droite{
+    position: absolute;
+    display: block;
+    animation: slide-in-droite 1s;
+}
+
+
+
+.active_gauche{
+    position: absolute;
+    display: block;
+    animation: slide-in-gauche 1s;
+}
+
+
+
+
+.foot_button{
+    position: fixed;
+    bottom: 40px;
+    right: 10%;
+    width: 40px;
+    height: 40px;
+    background-color: gainsboro;
+    border-radius: 20%;
+    border: 1px solid black;
+    box-shadow: 2px 3px gray;
+}
+
+
+.foot_button:hover{
+    transform: translate(2px,3px);
+    background-color: rgb(184, 184, 184);
+    box-shadow: 0px 0px gray;
+}
+
+.foot{
+    z-index: 10000;
+    position: fixed;
+    bottom: 0;
+    width: 120%;
+    height: 40%;
+    display: none;
+    background-color: rgb(109, 109, 109);
+    transform:translateX(-10%) translateY(100%);
+    rotate: -5deg;
+}
+
+.enclanche{
+    transform: translateX(-10%) translateY(30%);
+    display: block;
+    animation: foot_appeard 0.7s;
+}
+
+.declanche{
+    transform:translateX(-10%) translateY(120%);
+    display: block;
+    animation: foot_desappeard 0.7s;
+}
+
+.defoot_button{
+    position: fixed;
+    bottom: 95%;
+    right: 16%;
+    width: 40px;
+    height: 40px;
+    background-color: gainsboro;
+    border-radius: 20%;
+    border: 1px solid black;
+    box-shadow: 2px 3px gray;
+    rotate: 5deg;
+}
+
+
+.defoot_button:hover{
+    transform: translate(2px,3px);
+    background-color: rgb(184, 184, 184);
+    box-shadow: 0px 0px gray;
+}
+
+
+
+.foot p{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    line-height:0;
+    position: relative;
+    left: 15%;
+    z-index: 10001;
+}
+
+
+
+
+@keyframes slide-in-droite {
+    from{
+        transform: translateX(100vw);
+    }
+
+    to{
+        transform: translateX(0vw);
+    }
+}
+
+
+@keyframes slide-in-gauche {
+    from{
+        transform: translateX(-100vw);
+    }
+
+    to{
+        transform: translateX(0vw);
+    }
+}
+
+
+@keyframes chevrons_bas {
+    0%{
+        transform: translateY(0px) rotate(92deg);
+    }
+    20%{
+        transform: translateY(20px) rotate(92deg); 
+        opacity: 1;
+        filter: drop-shadow(0px 0px 5px rgb(0, 238, 255));
+    }
+    70%{
+        transform: translateY(0px) rotate(92deg);
+    }
+    100%{
+        transform: translateY(0px) rotate(92deg);
+    }
+}
+
+
+@keyframes chevrons_haut {
+    0%{
+        transform: translateY(0px) rotate(-88deg);
+    }
+    20%{
+        transform: translateY(-20px) rotate(-88deg);
+        opacity: 1;
+        filter: drop-shadow(0px 0px 5px red);
+    }
+    70%{
+        transform: translateY(0px) rotate(-88deg);
+    }
+    100%{
+        transform: translateY(0px) rotate(-88deg);
+    }
+}
+
+
+@keyframes foot_appeard {
+    from{
+        transform:translateX(-10%) translateY(100%);
+    }
+    to{
+        transform:translateX(-10%) translateY(30%);
+    }
+}
+
+@keyframes foot_desappeard {
+    from{
+        transform:translateX(-10%) translateY(30%);
+
+    }
+    to{
+        transform:translateX(-10%) translateY(120%);
+    }
+}
